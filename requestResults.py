@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 import json
 import random
@@ -32,11 +33,11 @@ if __name__ == "__main__":
 
     PERIOD_OF_TIME = 61200  # 17 hours
 
-    f = open("counter.txt", "r")
+    f = open(os.getenv("PATH") + "counter.txt", "r")
     counter = int(f.read())
     f.close()
 
-    log = open("log.txt", "a")
+    log = open(os.getenv("PATH") + "log.txt", "a")
     log.write("CRON started at: " + datetime.now().strftime("%H:%M:%S") + "\n")
     print ("is something happening??")
 
@@ -55,10 +56,10 @@ if __name__ == "__main__":
             # Increase counter
             counter += 1
             # Write counter to file
-            f = open("counter.txt", "w")
+            f = open(os.getenv("PATH") + "counter.txt", "w")
             f.write(str(counter))
 
-            fn = "archive/result" + str(counter) + ".json"
+            fn = os.getenv("PATH") + "archive/result" + str(counter) + ".json"
             # save to archive
             writeResultsToFile(fn, response)
 
