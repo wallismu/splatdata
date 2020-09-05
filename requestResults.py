@@ -9,8 +9,6 @@ import SplatoonResult
 
 load_dotenv()
 
-os.chdir('/home/ubuntu/nintendo/ponyboy')
-
 def makeRequest():
     url = "https://app.splatoon2.nintendo.net/api/results"
 
