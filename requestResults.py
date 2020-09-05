@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     while(True):
         # Wait.....
-        #rnd = random.randint(1620, 3060)
+        # rnd = random.randint(1620, 3060)
         rnd = random.randint(3, 8)
         time.sleep(rnd)
         print(rnd)

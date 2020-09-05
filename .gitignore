@@ -1,0 +1,5 @@
+gitignore/*
+archive/*
+old/*
+.DS_Store
+.env
