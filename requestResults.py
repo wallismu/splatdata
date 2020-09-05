@@ -42,7 +42,7 @@ if __name__ == "__main__":
     f.close()
 
     log = open(os.getenv("CUSTOMPATH") + "log.txt", "a")
-    log.write("CRON started at: " + datetime.datetime.now() + "\n")
+    log.write("CRON started at: " + datetime.now() + "\n")
     print ("is something happening??")
 
     while(True):
@@ -52,7 +52,7 @@ if __name__ == "__main__":
         time.sleep(rnd)
 
         response = makeRequest()
-        log.write("Made request at: " + datetime.datetime.now() + "\n")
+        log.write("Made request at: " + datetime.now() + "\n")
         
         # Add to master.csv
         sp = SplatoonResult.splatoonResult(response)
