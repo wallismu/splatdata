@@ -60,7 +60,7 @@ if __name__ == "__main__":
             # save to archive
             writeResultsToFile(fn, response)
 
-            log.write("Recorded resulsts at: " + fn)
+            log.write("Recorded resulsts at: " + fn + "\n")
 
         # Break at midnight
         if time.time() > start + PERIOD_OF_TIME : break
