@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import json
 import sys
+import os
 import csv
 
 class splatoonResult:
     def __init__(self, x):
-        with open(os.getenv("CUSTOMCUSTOMPATH") + 'weapons.json') as g:
+        with open(os.getenv("CUSTOMPATH") + 'weapons.json') as g:
             y = json.load(g)
         self.data = x['results']
         self.weaponData = y
