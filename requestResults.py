@@ -2,6 +2,7 @@ import requests
 import json
 import random
 import time
+from datetime import datetime
 from dotenv import load_dotenv
 import os
 import SplatoonResult
@@ -19,7 +20,7 @@ def makeRequest():
 
     response = requests.request("GET", url, headers=headers, data=payload)
 
-    print(response.status_code)
+    # print(response.status_code)
     return response.json()
 
 def writeResultsToFile(filename, response):
@@ -35,14 +36,16 @@ if __name__ == "__main__":
     counter = int(f.read())
     f.close()
 
+    log = open("log.txt", "a+")
+
     while(True):
         # Wait.....
-        # rnd = random.randint(1620, 3060)
-        rnd = random.randint(3, 8)
+        rnd = random.randint(1620, 3060)
+        #rnd = random.randint(3, 8)
         time.sleep(rnd)
-        print(rnd)
 
         response = makeRequest()
+        log.write("Made request at: " + datetime.now().strftime("%H:%M:%S") + "\n")
         
         # Add to master.csv
         sp = SplatoonResult.splatoonResult(response)
@@ -56,6 +59,8 @@ if __name__ == "__main__":
             fn = "archive/result" + str(counter) + ".json"
             # save to archive
             writeResultsToFile(fn, response)
+
+            log.write("Recorded resulsts at: " + fn)
 
         # Break at midnight
         if time.time() > start + PERIOD_OF_TIME : break
