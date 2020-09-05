@@ -5,7 +5,7 @@ import csv
 
 class splatoonResult:
     def __init__(self, x):
-        with open(os.getenv("PATH") + 'weapons.json') as g:
+        with open(os.getenv("CUSTOMCUSTOMPATH") + 'weapons.json') as g:
             y = json.load(g)
         self.data = x['results']
         self.weaponData = y
@@ -56,7 +56,7 @@ class splatoonResult:
         return row
 
     def generateCSV(self):
-        filename = os.getenv("PATH") + "master.csv"
+        filename = os.getenv("CUSTOMPATH") + "master.csv"
 
         with open(filename, 'r') as f:
             lines = f.read().splitlines()
