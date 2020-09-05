@@ -33,10 +33,6 @@ def writeResultsToFile(filename, response):
         json.dump(response, outfile)
 
 if __name__ == "__main__":
-    start = time.time()
-
-    PERIOD_OF_TIME = 61200  # 17 hours
-
     f = open(os.getenv("CUSTOMPATH") + "counter.txt", "r")
     counter = int(f.read())
     f.close()
@@ -45,33 +41,31 @@ if __name__ == "__main__":
     log.write("CRON started at: " + str(datetime.now()) + "\n")
     print ("is something happening??")
 
-    while(True):
-        # Wait.....
-        rnd = random.randint(1620, 3060)
-        #rnd = random.randint(3, 8)
-        time.sleep(rnd)
+    
+    # Wait.....
+    rnd = random.randint(120,1500)
+    #rnd = random.randint(3, 8)
+    time.sleep(rnd)
 
-        response = makeRequest()
-        log.write("Made request at: " + str(datetime.now()) + "\n")
+    response = makeRequest()
+    log.write("Made request at: " + str(datetime.now()) + "\n")
+    
+    # Add to master.csv
+    sp = SplatoonResult.splatoonResult(response)
+    if(sp.generateCSV()): # it actually DID something, save the file
+        # Increase counter
+        counter += 1
+        # Write counter to file
+        f = open(os.getenv("CUSTOMPATH") + "counter.txt", "w")
+        f.write(str(counter))
+
+        fn = os.getenv("CUSTOMPATH") + "archive/result" + str(counter) + ".json"
+        # save to archive
+        writeResultsToFile(fn, response)
+
+        log.write("Recorded resulsts at: " + fn + "\n")
+
         
-        # Add to master.csv
-        sp = SplatoonResult.splatoonResult(response)
-        if(sp.generateCSV()): # it actually DID something, save the file
-            # Increase counter
-            counter += 1
-            # Write counter to file
-            f = open(os.getenv("CUSTOMPATH") + "counter.txt", "w")
-            f.write(str(counter))
-
-            fn = os.getenv("CUSTOMPATH") + "archive/result" + str(counter) + ".json"
-            # save to archive
-            writeResultsToFile(fn, response)
-
-            log.write("Recorded resulsts at: " + fn + "\n")
-
-        # Break at midnight
-        if time.time() > start + PERIOD_OF_TIME : break
-
         
 
     
