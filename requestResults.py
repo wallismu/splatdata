@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+print ("SOMETHING IS BAD")
+
 import requests
 import json
 import random
@@ -7,6 +8,8 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 import SplatoonResult
+
+print("ATTEMPTING...")
 
 load_dotenv()
 print("jhghj", os.getenv("COOKIE"))
