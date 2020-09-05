@@ -4,3 +4,5 @@ archive/*
 old/*
 .DS_Store
 .env
+counter.txt
+SplatoonResult.pyc
