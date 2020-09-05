@@ -8,6 +8,7 @@ import os
 import SplatoonResult
 
 load_dotenv()
+print("jhghj", os.getenv("COOKIE"))
 
 def makeRequest():
     url = "https://app.splatoon2.nintendo.net/api/results"
