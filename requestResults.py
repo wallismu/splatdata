@@ -38,7 +38,9 @@ if __name__ == "__main__":
     counter = int(f.read())
     f.close()
 
-    log = open("log.txt", "a+")
+    log = open("log.txt", "a")
+    log.write("CRON started at: " + datetime.now().strftime("%H:%M:%S") + "\n")
+    print ("is something happening??")
 
     while(True):
         # Wait.....
