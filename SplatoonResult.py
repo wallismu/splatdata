@@ -1,10 +1,11 @@
+#!/usr/bin/env python
 import json
 import sys
 import csv
 
 class splatoonResult:
     def __init__(self, x):
-        with open('weapons.json') as g:
+        with open(os.getenv("PATH") + 'weapons.json') as g:
             y = json.load(g)
         self.data = x['results']
         self.weaponData = y
@@ -55,7 +56,7 @@ class splatoonResult:
         return row
 
     def generateCSV(self):
-        filename = "master.csv"
+        filename = os.getenv("PATH") + "master.csv"
 
         with open(filename, 'r') as f:
             lines = f.read().splitlines()
