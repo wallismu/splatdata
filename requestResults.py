@@ -12,7 +12,6 @@ import SplatoonResult
 print("ATTEMPTING...")
 
 load_dotenv()
-print("jhghj", os.getenv("COOKIE"))
 
 def makeRequest():
     url = "https://app.splatoon2.nintendo.net/api/results"
@@ -31,6 +30,7 @@ def makeRequest():
 def writeResultsToFile(filename, response):
     with open(filename, 'w') as outfile:
         json.dump(response, outfile)
+    outfile.close()
 
 if __name__ == "__main__":
     f = open(os.getenv("CUSTOMPATH") + "counter.txt", "r")
@@ -58,13 +58,14 @@ if __name__ == "__main__":
         # Write counter to file
         f = open(os.getenv("CUSTOMPATH") + "counter.txt", "w")
         f.write(str(counter))
+        f.close()
 
         fn = os.getenv("CUSTOMPATH") + "archive/result" + str(counter) + ".json"
         # save to archive
         writeResultsToFile(fn, response)
 
-        log.write("Recorded resulsts at: " + fn + "\n")
-
+        log.write("Recorded results at: " + fn + "\n")
+    log.close()
         
         
 

@@ -6,3 +6,6 @@ old/*
 .env
 counter.txt
 SplatoonResult.pyc
+master.csv
+log.txt
+doTheThing.sh
