@@ -1,6 +1,7 @@
 __pycache__/*
 gitignore/*
 archive/*
+analysis/*
 old/*
 .DS_Store
 .env

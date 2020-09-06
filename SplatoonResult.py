@@ -3,6 +3,9 @@ import json
 import sys
 import os
 import csv
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class splatoonResult:
     def __init__(self, x):
@@ -46,10 +49,12 @@ class splatoonResult:
         row.append(battle['player_result']['special_count']) # total specials
         row.append(battle['player_result']['death_count']) # death_count
         
-        weapon = (battle['player_result']['player']['weapon']['name'].lower()) # weapon name
-        row.append(weapon)
+        weapon = (battle['player_result']['player']['weapon']['name']) # weapon name
+        weaponKey = self.getWeaponKey(self.weaponData, weapon)
 
-        row.append(self.weaponData[self.convertWeaponName(weapon)]['type_key']) # weapon type (pulled from JSON)
+        row.append(weaponKey)
+        #row.append(self.weaponData[self.convertWeaponName(weapon)]['type_key']) # weapon type (pulled from JSON)
+        row.append(self.getWeaponType(weaponKey))
         
         row.append(battle['player_result']['player']['weapon']['sub']['name'].lower()) # sub 
         row.append(battle['player_result']['player']['weapon']['special']['name'].lower()) # special
@@ -71,6 +76,7 @@ class splatoonResult:
             if int(self.data[x]['battle_number']) > lastBattleCaptured:
                 rows.append(self.getSingleMatchInfo(self.data[x]))  
                 #print(self.data)
+            
 
         with open(filename, 'a+') as csvfile:    
             csvwriter = csv.writer(csvfile)  
@@ -79,14 +85,22 @@ class splatoonResult:
         return len(rows)
         
 
-    def convertWeaponName(self, name):
-        name = name.replace("-","_")
-        name = name.replace(" ","_")
-        return name.lower()
+    def getWeaponKey(self, weaponData, name):
+        for w in weaponData:
+            if "en" in weaponData[w]['localization'].keys():
+                if name == weaponData[w]['localization']['en']:
+                    return weaponData[w]['key']
+            else:
+                if name == weaponData[w]['localization']['en-gb']:
+                    return name, weaponData[w]['key']
 
-# if __name__ == "__main__":
-#     with open('results2.json') as g:
-#         y = json.load(g)
-#     sp = splatoonResult(y)
-#     #print(sp.getMinMaxBattleNumbers())
-#     sp.generateCSV()
+    def getWeaponType(self, key):
+        return self.weaponData[key]['type_key']
+
+if __name__ == "__main__":
+    with open('archive/result1.json') as g:
+        y = json.load(g)
+    g.close()
+    sp = splatoonResult(y)
+    #print(sp.getMinMaxBattleNumbers())
+    sp.generateCSV()

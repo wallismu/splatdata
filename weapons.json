@@ -433,7 +433,7 @@
 		},
 		"released_at": "2018-09-14T02:00:00Z"
 	},
-	"hero_shot_replica": {
+	"hero_shot": {
 		"key": "hero_shot",
 		"localization": {
 			"de": "Heldenwaffe Replik",
@@ -464,8 +464,8 @@
 		},
 		"released_at": "2017-07-21T00:00:00Z"
 	},
-	"octo_shot_replica": {
-		"key": "octo_shot_replica",
+	"octo_shot": {
+		"key": "octo_shot",
 		"localization": {
 			"de": "Okto-Kleckser Replik",
 			"en": "Octo Shot Replica",
@@ -1053,7 +1053,7 @@
 		},
 		"released_at": "2017-07-21T00:00:00Z"
 	},
-	"hero_blaster_replica": {
+	"hero_blaster": {
 		"key": "hero_blaster",
 		"localization": {
 			"de": "Helden-Blaster Replik",
@@ -1810,7 +1810,7 @@
 		},
 		"released_at": "2018-09-14T02:00:00Z"
 	},
-	"hero_roller_replica": {
+	"hero_roller": {
 		"key": "hero_roller",
 		"localization": {
 			"de": "Helden-Roller Replik",
@@ -2382,7 +2382,7 @@
 		},
 		"released_at": "2018-09-14T02:00:00Z"
 	},
-	"hero_charger_replica": {
+	"hero_charger": {
 		"key": "hero_charger",
 		"localization": {
 			"de": "Helden-Konzentrator Replik",
@@ -2879,7 +2879,7 @@
 		},
 		"released_at": "2019-04-03T02:00:00Z"
 	},
-	"hero_slosher_replica": {
+	"hero_slosher": {
 		"key": "hero_slosher",
 		"localization": {
 			"de": "Helden-Schwapper Replik",
@@ -3382,7 +3382,7 @@
 		},
 		"released_at": "2019-04-03T02:00:00Z"
 	},
-	"hero_splatling_replica": {
+	"hero_splatling": {
 		"key": "hero_splatling",
 		"localization": {
 			"de": "Helden-Splatling Replik",
@@ -3795,7 +3795,7 @@
 		},
 		"released_at": "2018-09-14T02:00:00Z"
 	},
-	"hero_dualies_replica": {
+	"hero_dualies": {
 		"key": "hero_dualies",
 		"localization": {
 			"de": "Helden-Doppler Replik",
@@ -4108,7 +4108,7 @@
 		},
 		"released_at": "2018-03-31T02:00:00Z"
 	},
-	"hero_brella_replica": {
+	"hero_brella": {
 		"key": "hero_brella",
 		"localization": {
 			"de": "Helden-Pluviator Replik",
