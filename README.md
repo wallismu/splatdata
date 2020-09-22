@@ -3,5 +3,4 @@ I used [mitmproxy](https://mitmproxy.org/) to make automated calls to Nintendo's
 1. Nintendo only saves the previous 50 battles. As old battles get deleted, they are gone forever. As someone who has 500+ hours of Splatoon 2 logged, I need (and desire) far more than 50 battles to make any kind of worthwhile statistical analysis. 
 2. I play Splatoon at weird times. If I say, only played for two hours on Sunday, I could just poll every Monday morning. But as a true addict, games can be at 6:30 in the morning or at night, any day of the week. 
 
-Inspired by [NintendoSwitchRESTAPI](https://github.com/ZekeSnider/NintendoSwitchRESTAPI)
-Weapons.json pulled from [splatoon2-data](https://github.com/mntone/splatoon2-data/blob/master/main.json)
+Inspired by [NintendoSwitchRESTAPI](https://github.com/ZekeSnider/NintendoSwitchRESTAPI), weapons.json pulled from [splatoon2-data](https://github.com/mntone/splatoon2-data/blob/master/main.json)
